@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { StravaActivity } from '@/services/strava';
+import { stravaService } from '@/services/strava';
 
 function calculateTrainingLoad(activity: StravaActivity): number {
   const distanceKm = activity.distance / 1000;
@@ -19,9 +20,15 @@ export async function GET(request: Request) {
   }
 
   try {
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
     const activities = await prisma.activity.findMany({
       where: {
-        userId: session.user.id
+        userId: session.user.id,
+        startDate: {
+          gte: oneYearAgo
+        }
       },
       orderBy: {
         startDate: 'desc'
@@ -50,12 +57,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Format de données invalide' }, { status: 400 });
     }
 
-    // Trier les activités par date
-    const sortedActivities = [...activities].sort((a, b) => 
-      new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
-    );
-
-    const results = await Promise.all(sortedActivities.map(async (activity: StravaActivity) => {
+    const results = await Promise.all(activities.map(async (activity: StravaActivity) => {
       const load = calculateTrainingLoad(activity);
 
       return prisma.activity.upsert({
@@ -96,6 +98,48 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, count: results.length });
   } catch (error) {
     console.error('Erreur lors de la sauvegarde des activités:', error);
+    return NextResponse.json({ 
+      error: 'Erreur serveur',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+
+export async function PUT(request: Request) {
+  const session = await getServerSession(authOptions);
+  
+  if (!session?.user) {
+    return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
+  }
+
+  try {
+    const token = (session as any).accessToken;
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    
+    // Récupérer les activités de Strava
+    const activities = await stravaService.getAllActivitiesByDateRange(
+      token,
+      oneYearAgo
+    );
+
+    // Sauvegarder les activités dans la BDD
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/activities`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(activities)
+    });
+
+    if (!response.ok) {
+      throw new Error('Erreur lors de la sauvegarde des activités');
+    }
+
+    const result = await response.json();
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error('Erreur lors de la synchronisation avec Strava:', error);
     return NextResponse.json({ 
       error: 'Erreur serveur',
       details: error instanceof Error ? error.message : 'Unknown error'

@@ -1,0 +1,108 @@
+{
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "syncWithStrava": "Synchroniser avec Strava",
+    "syncing": "Synchronisation en cours...",
+    "acwr": {
+      "title": "Ratio de Charge Aiguë:Chronique (ACWR)",
+      "riskLevel": {
+        "low": "Risque Faible",
+        "moderate": "Risque Modéré",
+        "high": "Risque Élevé"
+      },
+      "riskFactors": "Facteurs de risque",
+      "risks": {
+        "highAcwr": "Augmentation très importante de la charge (ACWR > 1.5)",
+        "moderateAcwr": "Augmentation significative de la charge (ACWR > 1.3)",
+        "lowAcwr": "Charge d'entraînement insuffisante (ACWR < 0.8)",
+        "noTraining": "Absence d'entraînement régulier (charge chronique nulle)",
+        "irregularTraining": "Manque de régularité dans l'entraînement",
+        "loadSpike": "Pic soudain de charge d'entraînement",
+        "volumeIncrease": "Augmentation importante du volume d'entraînement",
+        "highIntensity": "Intensité élevée des entraînements",
+        "poorRecovery": "Récupération insuffisante entre les séances"
+      },
+      "advice": {
+        "start": {
+          "title": "Démarrage de l'entraînement",
+          "tip1": "Commencez progressivement avec 2-3 séances par semaine",
+          "tip2": "Privilégiez des séances à faible intensité pour construire votre base aérobie",
+          "tip3": "Augmentez graduellement le volume d'entraînement (+10% par semaine maximum)",
+          "tip4": "Écoutez votre corps et prenez des jours de repos supplémentaires si nécessaire"
+        },
+        "insufficient": {
+          "title": "Charge d'entraînement insuffisante",
+          "tip1": "Augmentez progressivement votre volume d'entraînement",
+          "tip2": "Maintenez une régularité dans vos séances",
+          "tip3": "Visez 3-4 séances par semaine pour maintenir une charge chronique stable",
+          "tip4": "Évitez les augmentations brutales de charge malgré le sous-entraînement"
+        },
+        "excessive": {
+          "title": "Charge d'entraînement excessive",
+          "tip1": "Réduisez immédiatement votre charge d'entraînement",
+          "tip2": "Privilégiez des séances de récupération active",
+          "tip3": "Accordez-vous 2-3 jours de repos",
+          "tip4": "Revenez progressivement à une charge normale sur 1-2 semaines"
+        },
+        "high": {
+          "title": "Charge d'entraînement élevée",
+          "tip1": "Surveillez votre fatigue et vos sensations",
+          "tip2": "Réduisez légèrement l'intensité des prochaines séances",
+          "tip3": "Maintenez une bonne récupération entre les séances",
+          "tip4": "Évitez d'augmenter davantage la charge cette semaine"
+        },
+        "optimal": {
+          "title": "Charge d'entraînement optimale",
+          "tip1": "Continuez à maintenir cette régularité dans l'entraînement",
+          "tip2": "Vous pouvez envisager d'augmenter progressivement la charge (+5-10%)",
+          "tip3": "Alternez les séances intenses avec des séances plus légères",
+          "tip4": "Maintenez un bon équilibre entre entraînement et récupération"
+        }
+      }
+    },
+    "monthlyAnalysis": {
+      "title": "Analyse Mensuelle des Risques",
+      "metrics": {
+        "totalDistance": "Distance Totale",
+        "totalTime": "Temps Total",
+        "totalElevation": "Dénivelé Total",
+        "recoveryScore": "Score de Récupération",
+        "acwr": "ACWR",
+        "riskFactors": "Facteurs de risque"
+      }
+    },
+    "recentActivities": {
+      "title": "Activités Récentes",
+      "metrics": {
+        "distance": "km",
+        "time": "min",
+        "elevation": "m D+"
+      }
+    },
+    "months": {
+      "january": "janvier",
+      "february": "février",
+      "march": "mars",
+      "april": "avril",
+      "may": "mai",
+      "june": "juin",
+      "july": "juillet",
+      "august": "août",
+      "september": "septembre",
+      "october": "octobre",
+      "november": "novembre",
+      "december": "décembre"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Prévention des Blessures en Course à Pied",
+      "subtitle": "Connectez-vous avec votre compte Strava pour commencer",
+      "button": "Se connecter avec Strava"
+    }
+  },
+  "nav": {
+    "title": "Prévention des Blessures en Course à Pied",
+    "signout": "Déconnexion"
+  }
+} 

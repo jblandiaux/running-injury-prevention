@@ -1,0 +1,108 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "syncWithStrava": "Sync with Strava",
+    "syncing": "Syncing...",
+    "acwr": {
+      "title": "Acute:Chronic Workload Ratio (ACWR)",
+      "riskLevel": {
+        "low": "Low Risk",
+        "moderate": "Moderate Risk",
+        "high": "High Risk"
+      },
+      "riskFactors": "Risk Factors",
+      "risks": {
+        "highAcwr": "Very high workload increase (ACWR > 1.5)",
+        "moderateAcwr": "Significant workload increase (ACWR > 1.3)",
+        "lowAcwr": "Insufficient training load (ACWR < 0.8)",
+        "noTraining": "No regular training (zero chronic load)",
+        "irregularTraining": "Lack of training consistency",
+        "loadSpike": "Sudden spike in training load",
+        "volumeIncrease": "Significant increase in training volume",
+        "highIntensity": "High training intensity",
+        "poorRecovery": "Insufficient recovery between sessions"
+      },
+      "advice": {
+        "start": {
+          "title": "Training Start",
+          "tip1": "Start gradually with 2-3 sessions per week",
+          "tip2": "Focus on low-intensity sessions to build your aerobic base",
+          "tip3": "Gradually increase training volume (+10% per week maximum)",
+          "tip4": "Listen to your body and take extra rest days if needed"
+        },
+        "insufficient": {
+          "title": "Insufficient Training Load",
+          "tip1": "Progressively increase your training volume",
+          "tip2": "Maintain consistency in your sessions",
+          "tip3": "Aim for 3-4 sessions per week to maintain a stable chronic load",
+          "tip4": "Avoid sudden load increases despite undertraining"
+        },
+        "excessive": {
+          "title": "Excessive Training Load",
+          "tip1": "Immediately reduce your training load",
+          "tip2": "Focus on active recovery sessions",
+          "tip3": "Take 2-3 days of rest",
+          "tip4": "Gradually return to normal load over 1-2 weeks"
+        },
+        "high": {
+          "title": "High Training Load",
+          "tip1": "Monitor your fatigue and sensations",
+          "tip2": "Slightly reduce the intensity of upcoming sessions",
+          "tip3": "Maintain good recovery between sessions",
+          "tip4": "Avoid further increasing the load this week"
+        },
+        "optimal": {
+          "title": "Optimal Training Load",
+          "tip1": "Continue maintaining this training consistency",
+          "tip2": "You can consider gradually increasing the load (+5-10%)",
+          "tip3": "Alternate intense sessions with lighter ones",
+          "tip4": "Maintain a good balance between training and recovery"
+        }
+      }
+    },
+    "monthlyAnalysis": {
+      "title": "Monthly Risk Analysis",
+      "metrics": {
+        "totalDistance": "Total Distance",
+        "totalTime": "Total Time",
+        "totalElevation": "Total Elevation",
+        "recoveryScore": "Recovery Score",
+        "acwr": "ACWR",
+        "riskFactors": "Risk Factors"
+      }
+    },
+    "recentActivities": {
+      "title": "Recent Activities",
+      "metrics": {
+        "distance": "km",
+        "time": "min",
+        "elevation": "m elevation"
+      }
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Running Injury Prevention",
+      "subtitle": "Sign in with your Strava account to get started",
+      "button": "Sign in with Strava"
+    }
+  },
+  "nav": {
+    "title": "Running Injury Prevention",
+    "signout": "Sign Out"
+  }
+} 

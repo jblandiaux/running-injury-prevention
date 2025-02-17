@@ -126,21 +126,21 @@ export class AnalysisService {
     const factors: string[] = [];
 
     if (analysis.volumeIncrease && analysis.volumeIncrease > 10) {
-      factors.push(`Augmentation du volume de ${Math.round(analysis.volumeIncrease)}%`);
+      factors.push("acwr.risks.volumeIncrease");
     }
 
     if (analysis.intensityScore && analysis.intensityScore > 7) {
-      factors.push('Intensité élevée des entraînements');
+      factors.push("acwr.risks.highIntensity");
     }
 
     if (analysis.acwr && analysis.acwr > 1.3) {
-      factors.push(`ACWR élevé (${analysis.acwr.toFixed(2)})`);
+      factors.push("acwr.risks.highAcwr");
     } else if (analysis.acwr && analysis.acwr < 0.8) {
-      factors.push(`ACWR faible (${analysis.acwr.toFixed(2)})`);
+      factors.push("acwr.risks.lowAcwr");
     }
 
     if (analysis.recoveryScore && analysis.recoveryScore < 70) {
-      factors.push('Récupération insuffisante entre les séances');
+      factors.push("acwr.risks.poorRecovery");
     }
 
     return factors;

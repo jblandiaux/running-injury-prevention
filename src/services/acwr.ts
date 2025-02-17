@@ -51,27 +51,27 @@ class ACWRService {
 
     // 1. Analyse du ratio ACWR
     if (acwr > 1.5) {
-      riskFactors.push("Augmentation très importante de la charge (ACWR > 1.5)");
+      riskFactors.push("acwr.risks.highAcwr");
     } else if (acwr > 1.3) {
-      riskFactors.push("Augmentation significative de la charge (ACWR > 1.3)");
+      riskFactors.push("acwr.risks.moderateAcwr");
     } else if (acwr < 0.8) {
-      riskFactors.push("Charge d'entraînement insuffisante (ACWR < 0.8)");
+      riskFactors.push("acwr.risks.lowAcwr");
     }
 
     // 2. Analyse de la charge chronique
     if (chronicLoad === 0) {
-      riskFactors.push("Absence d'entraînement régulier (charge chronique nulle)");
+      riskFactors.push("acwr.risks.noTraining");
     }
 
     // 3. Analyse de la régularité
     const hasRegularTraining = recentActivities.length >= 3;
     if (!hasRegularTraining) {
-      riskFactors.push("Manque de régularité dans l'entraînement");
+      riskFactors.push("acwr.risks.irregularTraining");
     }
 
     // 4. Analyse des variations brutales
     if (acuteLoad > chronicLoad * 1.3) {
-      riskFactors.push("Pic soudain de charge d'entraînement");
+      riskFactors.push("acwr.risks.loadSpike");
     }
 
     return riskFactors;
