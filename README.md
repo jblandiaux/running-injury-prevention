@@ -74,7 +74,7 @@ The ACWR is calculated using:
 
 ## How it works
 
-The application uses a sophisticated algorithm to:
+The application uses a algorithm to:
 1. Calculate training load based on distance, elevation, and intensity
 2. Analyze acute vs chronic workload ratios
 3. Assess injury risk based on multiple factors
