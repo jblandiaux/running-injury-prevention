@@ -2,6 +2,9 @@
 
 A running injury prevention application based on ACWR (Acute Chronic Workload Ratio).
 
+<img width="1348" alt="image" src="https://github.com/user-attachments/assets/01db23f6-180f-4141-b517-760714230c43" />
+
+
 ## Features
 
 - Strava Integration
@@ -74,7 +77,7 @@ The ACWR is calculated using:
 
 ## How it works
 
-The application uses a sophisticated algorithm to:
+The application uses a algorithm to:
 1. Calculate training load based on distance, elevation, and intensity
 2. Analyze acute vs chronic workload ratios
 3. Assess injury risk based on multiple factors
