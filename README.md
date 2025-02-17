@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Running Injury Prevention
 
-## Getting Started
+A running injury prevention application based on ACWR (Acute Chronic Workload Ratio).
 
-First, run the development server:
+## Features
 
+- Strava Integration
+- Automatic ACWR Calculation
+- Training Load Analysis
+- Injury Risk Assessment
+- Personalized Recommendations
+- Data Visualization Dashboard
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Prisma (PostgreSQL)
+- Strava API
+- NextAuth.js
+- Tailwind CSS
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/jblandiaux/running-injury-prevention.git
+cd running-injury-prevention
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configure environment variables:
+Create a `.env` file in the root directory with:
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5430/running_prevention"
+STRAVA_CLIENT_ID="your_client_id"
+STRAVA_CLIENT_SECRET="your_client_secret"
+STRAVA_REDIRECT_URI="http://localhost:3000/api/auth/callback/strava"
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your_secret"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Initialize the database:
+```bash
+npx prisma generate
+npx prisma db push
+```
 
-## Learn More
+5. Start the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Sign in with your Strava account
+2. Your activities will be automatically synchronized
+3. Check your dashboard to see:
+   - Your current ACWR
+   - Risk level assessment
+   - Personalized recommendations
+   - Monthly activity analysis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ACWR Calculation
 
-## Deploy on Vercel
+The ACWR is calculated using:
+- Acute load: average of the last 7 days
+- Chronic load: average of the last 28 days
+- Factors considered: distance, elevation gain, intensity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How it works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application uses a sophisticated algorithm to:
+1. Calculate training load based on distance, elevation, and intensity
+2. Analyze acute vs chronic workload ratios
+3. Assess injury risk based on multiple factors
+4. Generate personalized training recommendations
+5. Monitor recovery between sessions
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT
